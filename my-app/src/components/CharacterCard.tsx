@@ -1,5 +1,5 @@
 import { Character } from "../models/Character";
-import "../styles/CharacterCard.css";
+import "../styles/components/CharacterCard.css";
 
 /**
  *
@@ -12,6 +12,15 @@ import "../styles/CharacterCard.css";
  */
 function CharacterCard({ character }: { character: Character }) {
   // get a random background image
+  /**
+   * "height": "172",
+			"mass": "77",
+			"hair_color": "blond",
+			"skin_color": "fair",
+			"eye_color": "blue",
+			"birth_year": "19BBY",
+			"gender": "male",
+   */
   return (
     <div
       className="card"
@@ -24,8 +33,17 @@ function CharacterCard({ character }: { character: Character }) {
       <div className="card-content">
         <h2 className="card-title">{character.name}</h2>
         <p className="card-body">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio,
-          culpa.
+          Gender: {character.gender}
+          <br />
+          Birth Year: {character.birth_year}
+          <br />
+          Height: {character.height}
+          <br />
+          Mass: {character.mass}
+          <br />
+          Hair Color: {character.hair_color}
+          <br />
+          Skin Color: {character.skin_color}
         </p>
       </div>
     </div>
