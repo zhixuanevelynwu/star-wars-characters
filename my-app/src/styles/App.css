@@ -9,8 +9,13 @@
 }
 
 @font-face {
-  font-family: "starjedi";
+  font-family: "starjhol";
   src: url("../fonts/star_jedi/starjedi/Starjhol.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "starjedi";
+  src: url("../fonts/star_jedi/starjedi/Starjedi.ttf") format("truetype");
 }
 
 #root {
@@ -20,7 +25,7 @@
 }
 
 h1 {
-  font-family: "starjedi";
+  font-family: "starjhol";
   margin-bottom: 30px;
 }
 
