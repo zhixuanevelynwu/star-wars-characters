@@ -1,4 +1,7 @@
+import { useState } from "react";
 import { Character } from "../models/Character";
+import CharacterModal from "./CharacterModal";
+import useFetchPlanet from "../hooks/UseFetchPlanet";
 import "../styles/components/CharacterCard.css";
 
 /**
@@ -11,42 +14,47 @@ import "../styles/components/CharacterCard.css";
  * appear in a modal about the character.
  */
 function CharacterCard({ character }: { character: Character }) {
-  // get a random background image
-  /**
-   * "height": "172",
-			"mass": "77",
-			"hair_color": "blond",
-			"skin_color": "fair",
-			"eye_color": "blue",
-			"birth_year": "19BBY",
-			"gender": "male",
-   */
+  const [show, setShow] = useState(false);
+  const { planet, loading, error } = useFetchPlanet(character.homeworld);
+
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+
+  // You might want to handle the loading and error states as well
   return (
-    <div
-      className="card"
-      style={{
-        backgroundImage: `url(https://picsum.photos/seed/${
-          Math.random() * 1000
-        }/500/500)`,
-      }}
-    >
-      <div className="card-content">
-        <h2 className="card-title">{character.name}</h2>
-        <p className="card-body">
-          Gender: {character.gender}
-          <br />
-          Birth Year: {character.birth_year}
-          <br />
-          Height: {character.height}
-          <br />
-          Mass: {character.mass}
-          <br />
-          Hair Color: {character.hair_color}
-          <br />
-          Skin Color: {character.skin_color}
-        </p>
+    <>
+      <div
+        id="character-card"
+        className="card"
+        onClick={handleShow}
+        style={{
+          backgroundImage: `url(https://picsum.photos/seed/${character.height}/500/500)`,
+        }}
+      >
+        <div className="card-content">
+          <h2 className="card-title">{character.name}</h2>
+          <p className="card-body">
+            Birth Year: {character.birth_year}
+            <br />
+            Height: {character.height / 100.0} m<br />
+            Mass: {character.mass} kg
+            <br />
+            Hair Color: {character.hair_color}
+            <br />
+            Skin Color: {character.skin_color}
+          </p>
+        </div>
       </div>
-    </div>
+
+      <CharacterModal
+        show={show}
+        handleClose={handleClose}
+        character={character}
+        planet={planet}
+        loading={loading}
+        error={error}
+      />
+    </>
   );
 }
 
