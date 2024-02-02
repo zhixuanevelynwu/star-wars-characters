@@ -1,12 +1,13 @@
-.card {
-  color: var(--button-color);
+#character-card {
   background-size: cover;
   padding: 10rem 0 0;
   max-width: 35ch;
   border-radius: 0.5rem;
-  border: 4px solid var(--default-specie-color);
   overflow: hidden;
   transition: transform 500ms ease;
+  cursor: pointer;
+  border: 4px solid var(--default-specie-color);
+  color: var(--text-color);
 }
 
 .card:hover,
