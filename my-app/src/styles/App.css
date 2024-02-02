@@ -1,0 +1,58 @@
+:root {
+  /* theme color */
+  --bg-color: hsl(207, 19%, 9%);
+  --text-color: white;
+  --button-color: hsl(0, 0%, 100%);
+  --animation-color: rgb(157, 0, 255);
+  /* specie color */
+  --default-specie-color: hsl(0, 57%, 49%);
+}
+
+@font-face {
+  font-family: "starjedi";
+  src: url("../fonts/star_jedi/starjedi/Starjhol.ttf") format("truetype");
+}
+
+#root {
+  margin: auto;
+  width: 80%;
+  padding: 50px;
+}
+
+h1 {
+  font-family: "starjedi";
+  margin-bottom: 30px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+#card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.button {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--bg-color);
+  background-color: var(--animation-color);
+  padding: 0.5em 1.25em;
+  border-radius: 0.25rem;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--button-color);
+}
