@@ -26,6 +26,7 @@ const MyApp: React.FC = () => {
       <h1>Star Wars Characters</h1>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
+
       <div id="card-container">
         {characters.map((character, index) => (
           <CharacterCard key={index} character={character} />

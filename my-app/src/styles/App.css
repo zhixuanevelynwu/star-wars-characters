@@ -3,7 +3,7 @@
   --bg-color: hsl(207, 19%, 9%);
   --text-color: white;
   --button-color: hsl(0, 0%, 100%);
-  --animation-color: rgb(157, 0, 255);
+  --animation-color: white;
   /* specie color */
   --default-specie-color: hsl(0, 57%, 49%);
 }
@@ -26,7 +26,6 @@
 
 h1 {
   font-family: "starjhol";
-  margin-bottom: 30px;
 }
 
 *,
@@ -45,7 +44,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin: 20px 0;
   align-items: center;
   justify-content: center;
   justify-items: center;
@@ -64,4 +63,11 @@ body {
 .button:hover,
 .button:focus {
   background-color: var(--button-color);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
 }
