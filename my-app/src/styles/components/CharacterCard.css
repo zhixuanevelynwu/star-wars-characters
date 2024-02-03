@@ -1,7 +1,8 @@
 #character-card {
   background-size: cover;
   padding: 10rem 0 0;
-  max-width: 35ch;
+  width: 100%;
+  max-width: 30ch;
   border-radius: 0.5rem;
   overflow: hidden;
   transition: transform 500ms ease;
