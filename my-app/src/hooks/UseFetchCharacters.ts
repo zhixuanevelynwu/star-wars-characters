@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Character } from '../models/Character';
+import { Character } from '../types/Character';
 
 type FetchCharactersResponse = {
   count: number;

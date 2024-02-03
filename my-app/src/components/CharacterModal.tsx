@@ -1,7 +1,7 @@
-import { Character } from "../models/Character";
+import { Character } from "../types/Character";
 import Modal from "react-bootstrap/Modal";
 import "../styles/components/CharacterModal.css";
-import { Planet } from "../models/Planet";
+import { Planet } from "../types/Planet";
 
 /**
  *
@@ -33,6 +33,12 @@ function CharacterModal({
   loading: boolean;
   error: string | null;
 }) {
+  const height: string =
+    character.height === "Unknown"
+      ? "Unknown"
+      : `${parseFloat(character.height) / 100.0} m`;
+  const mass =
+    character.mass === "unknown" ? "Unknown" : `${character.mass} kg`;
   return (
     <Modal
       className="character-modal"
@@ -50,9 +56,9 @@ function CharacterModal({
       <Modal.Body>
         <h5>Details</h5>
         <p>
-          Height: {character.height / 100.0} m
+          Height: {height}
           <br />
-          Mass: {character.mass} kg
+          Mass: {mass}
           <br />
           Created:{" "}
           {new Date(character.created)

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Planet } from '../models/Planet';
+import { Planet } from '../types/Planet';
 
 /**
  * 
