@@ -14,17 +14,21 @@ const useFetchCharacters = (initialPage = 1) => {
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(initialPage);
   const [totalPages, setTotalPages] = useState<number>(0);
+  const [searchTerm, setSearchTerm] = useState('');
 
+  // fetches characters on current page, also called when searchTerm changes
   const fetchCharacters = useCallback(async (page: number) => {
     setLoading(true);
+    const baseUrl = `https://swapi.dev/api/people/`;
+    const searchQuery = searchTerm ? `?search=${searchTerm}` : `?page=${page}`;
     try {
-      const response = await fetch(`https://swapi.dev/api/people/?page=${page}`);
+      const response = await fetch(`${baseUrl}${searchQuery}`);
       const data: FetchCharactersResponse = await response.json();
       setCharacters(data.results);
       setError(null);
 
-      // Assuming 10 characters per page as per SWAPI documentation
-      const calculatedTotalPages = Math.ceil(data.count / 10);
+      // 10 characters per page as per documentation
+      const calculatedTotalPages = searchTerm ? 1 : Math.ceil(data.count / 10);
       setTotalPages(calculatedTotalPages);
     } catch (error) {
       setError("Failed to fetch characters");
@@ -32,13 +36,14 @@ const useFetchCharacters = (initialPage = 1) => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [searchTerm]);
+  
 
   useEffect(() => {
     fetchCharacters(currentPage);
   }, [currentPage, fetchCharacters]);
 
-  return { characters, loading, error, currentPage, totalPages, setCurrentPage };
+  return { characters, loading, error, currentPage, totalPages, setCurrentPage, setSearchTerm };
 };
 
 export default useFetchCharacters;
