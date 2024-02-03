@@ -68,7 +68,6 @@ function CharacterCard({ character }: { character: Character }) {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
-  // You might want to handle the loading and error states as well
   return (
     <>
       <div
