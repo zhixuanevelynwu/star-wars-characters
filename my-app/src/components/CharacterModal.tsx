@@ -39,7 +39,7 @@ function CharacterModal({
       : `${parseFloat(character.height) / 100.0} m`;
   const mass: string =
     character.mass === "unknown" ? "Unknown" : `${character.mass} kg`;
-  const dateCreated = new Date(character.created)
+  const dateAdded = new Date(character.created)
     .toLocaleDateString("en-GB")
     .replace(/\//g, "-");
   return (
@@ -63,7 +63,7 @@ function CharacterModal({
           <br />
           Mass: {mass}
           <br />
-          Created: {dateCreated}
+          Date Added: {dateAdded}
           <br />
           Number of Films: {character.films.length}
           <br />
