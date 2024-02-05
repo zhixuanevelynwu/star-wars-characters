@@ -90,7 +90,6 @@ function CharacterCard({ character }: { character: Character }) {
           </p>
         </div>
       </div>
-
       <CharacterModal
         show={show}
         handleClose={handleClose}

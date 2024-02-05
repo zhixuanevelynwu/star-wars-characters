@@ -5,7 +5,6 @@ import { Planet } from "../types/Planet";
 
 /**
  *
- * @param param0 character information
  * @returns display information about the person:
  *  name as the header of the modal,
  *  height displayed in meters,
@@ -33,12 +32,16 @@ function CharacterModal({
   loading: boolean;
   error: string | null;
 }) {
+  // convert height to meters, mass to kg, and date to dd-MM-yyyy format
   const height: string =
     character.height === "Unknown"
       ? "Unknown"
       : `${parseFloat(character.height) / 100.0} m`;
-  const mass =
+  const mass: string =
     character.mass === "unknown" ? "Unknown" : `${character.mass} kg`;
+  const dateCreated = new Date(character.created)
+    .toLocaleDateString("en-GB")
+    .replace(/\//g, "-");
   return (
     <Modal
       className="character-modal"
@@ -60,10 +63,7 @@ function CharacterModal({
           <br />
           Mass: {mass}
           <br />
-          Created:{" "}
-          {new Date(character.created)
-            .toLocaleDateString("en-GB")
-            .replace(/\//g, "-")}
+          Created: {dateCreated}
           <br />
           Number of Films: {character.films.length}
           <br />

@@ -19,8 +19,7 @@ const MyApp: React.FC = () => {
     e.preventDefault();
     const searchTerm = e.target.search.value.trim();
     setSearchTerm(searchTerm);
-    // reset to the first page to show search results
-    setCurrentPage(1);
+    setCurrentPage(1); // reset to the first page to show search results
   };
 
   const handlePreviousClick = () => {
@@ -42,12 +41,9 @@ const MyApp: React.FC = () => {
           </Button>
         </InputGroup>
       </form>
-
       <hr />
-
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
-
       <div id="card-container">
         {characters.map((character, index) => (
           <CharacterCard key={index} character={character} />
