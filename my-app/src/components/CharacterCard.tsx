@@ -80,7 +80,7 @@ function CharacterCard({ character }: { character: Character }) {
         }}
       >
         <div className="card-content">
-          <h2 className="card-title">{character.name}</h2>
+          <h4 className="card-title">{character.name}</h4>
           <p className="card-body">
             Gender: {character.gender}
             <br />
